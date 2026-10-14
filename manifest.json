@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "StepPilot AI",
+  "version": "1.3.0",
+  "description": "Private form guidance and selected-text explanations.",
+  "permissions": ["activeTab", "scripting", "storage", "contextMenus"],
+  "host_permissions": ["http://127.0.0.1:8787/*"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "StepPilot AI",
+    "default_popup": "popup.html"
+  }
+}

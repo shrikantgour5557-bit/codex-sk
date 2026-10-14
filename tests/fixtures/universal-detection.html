@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StepPilot universal label fixture</title>
+<style>
+  body{font:16px system-ui;max-width:900px;margin:30px auto;padding:0 22px;color:#223}
+  section{margin:25px 0;padding:18px;border:1px solid #d9e0ea;border-radius:12px}
+  .row{display:grid;grid-template-columns:180px 1fr;gap:12px;align-items:center;margin:12px 0}
+  input,textarea,select{font:inherit;padding:9px;border:1px solid #aab5c4;border-radius:5px}
+  table{border-collapse:collapse}td,th{padding:8px;border:1px solid #ccd4df;text-align:left}
+  @media(max-width:560px){.row{grid-template-columns:1fr}}
+</style>
+<h1>Universal label detection fixture</h1>
+<section><h2>Label positions and native association</h2>
+  <div class="row"><label for="first-name">First Name</label><input id="first-name" name="first_name" autocomplete="given-name"></div>
+  <div><label for="above-city">City (above)</label><br><input id="above-city" name="above_city"></div>
+  <div><input id="below-label" name="below_label"><label for="below-label">Business name (below)</label></div>
+  <div class="row"><span class="field-label">Location (left)</span><div><input id="left-location" name="left_location"></div></div>
+  <div><input id="placeholder-url" placeholder="Website URL"></div>
+  <div><input id="title-budget" title="Daily budget"></div>
+  <label>Message inside label <textarea name="message"></textarea></label>
+</section>
+<section><h2>Accessible names, table rows, and choice controls</h2>
+  <span id="company-label">Company</span><input aria-labelledby="company-label" name="company">
+  <input aria-label="Email address" type="email" name="accessible_email">
+  <div role="combobox" tabindex="0" aria-label="Business name">Choose a business</div>
+  <table><tbody><tr><th scope="row">Postal code</th><td><input name="postal_code"></td></tr></tbody></table>
+  <fieldset><legend>Contact preference</legend><label><input type="radio" name="preference" value="email"> Email</label><label><input type="radio" name="preference" value="phone"> Phone</label></fieldset>
+  <label><input type="checkbox" name="agree"> I agree to the terms</label>
+</section>
+<section><h2>Dynamic and intentionally unclear fields</h2>
+  <button id="add-city" type="button">Add city field</button><div id="dynamic-fields"></div>
+  <label for="mystery">Field 7</label><input id="mystery" name="custom_7">
+  <label for="card-number">Card number</label><input id="card-number" name="card_number" autocomplete="cc-number">
+  <label for="password">Password</label><input id="password" name="password" type="password">
+</section>
+<section><h2>Choice, date, quantity, upload, context, and unfamiliar labels</h2>
+  <label for="start-date">Start date</label><input id="start-date" type="date" required>
+  <label for="seat-count">Number of seats</label><input id="seat-count" type="number" min="1" max="30" step="1">
+  <label for="resume-upload">Resume document</label><input id="resume-upload" type="file" accept=".pdf,.docx">
+  <label for="country-choice">Country</label><select id="country-choice"><option>Choose one</option><option>India</option><option>Canada</option></select>
+  <label for="unknown-unit">Allocation basis</label><input id="unknown-unit" placeholder="Enter value">
+  <fieldset><legend>Tax registration</legend><label for="registration-id">ID</label><input id="registration-id" name="registration_id"></fieldset>
+  <section aria-label="Technical analytics configuration"><h3>Analytics configuration</h3><label for="event-key">Event key</label><input id="event-key" name="event_key"></section>
+</section>
+<script>
+  document.getElementById('add-city').addEventListener('click', () => {
+    if (document.getElementById('dynamic-city')) return;
+    const label = document.createElement('label'); label.htmlFor = 'dynamic-city'; label.textContent = 'City';
+    const input = document.createElement('input'); input.id = 'dynamic-city'; input.name = 'city';
+    document.getElementById('dynamic-fields').append(label, input);
+  });
+</script>
+</html>

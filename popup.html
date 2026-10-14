@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StepPilot AI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="brand-copy"><strong>StepPilot <em>AI</em></strong><small>Your calm guide on the web</small></div>
+      <span class="local-badge"><i></i> PRIVATE BY DEFAULT</span>
+    </header>
+
+    <section class="welcome-card" aria-labelledby="welcome-title">
+      <div class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> YOUR PERSONAL GUIDE</div>
+      <h1 id="welcome-title">Make every step<br>feel <span>simple.</span></h1>
+      <p>Understand what a field asks for, why it matters, and what a clear answer looks like.</p>
+      <div class="workflow-chip"><span class="document-icon" aria-hidden="true">▤</span><span><b>Field-by-field help</b><small>Guidance based on the field you choose</small></span><span class="chip-arrow" aria-hidden="true">↗</span></div>
+    </section>
+
+    <section class="settings-row" aria-label="Guidance settings">
+      <div class="settings-copy"><strong>Guide language</strong><small>Choose your preferred language</small></div>
+      <label class="sr-only" for="language">Guide language</label>
+      <select id="language" aria-label="Guide language"><option value="auto">Auto</option><option value="en">English</option><option value="hi">हिन्दी</option><option value="hinglish">Hinglish</option></select>
+    </section>
+
+    <section class="voice-row" aria-label="Voice guidance setting">
+      <div class="settings-copy"><strong>Voice Guide</strong><small>Speech starts only when you press Play</small></div>
+      <label class="switch"><input id="voice-enabled" type="checkbox" aria-label="Voice Guide"><span class="switch-track" aria-hidden="true"></span><span class="sr-only">Voice Guide</span></label>
+    </section>
+
+    <section class="voice-settings" aria-label="Voice settings">
+      <label for="voice-hi">Hindi voice</label><select id="voice-hi" aria-label="Hindi voice"><option value="">Preferred available Hindi voice</option></select>
+      <label for="voice-en">English voice</label><select id="voice-en" aria-label="English voice"><option value="">Preferred available English voice</option></select>
+      <div class="voice-tuning"><label for="speech-rate">Speed <output id="rate-value">0.95</output></label><input id="speech-rate" type="range" min="0.8" max="1.1" step="0.05" value="0.95"></div>
+      <div class="voice-tuning"><label for="speech-pitch">Pitch <output id="pitch-value">1.0</output></label><input id="speech-pitch" type="range" min="0.85" max="1.15" step="0.05" value="1"></div>
+      <div class="preview-row"><label class="sr-only" for="preview-language">Preview language</label><select id="preview-language" aria-label="Preview language"><option value="en">English</option><option value="hi">हिन्दी</option></select><button class="button button-secondary" id="preview-voice" type="button">Preview voice</button></div>
+      <p class="voice-note" id="voice-note" role="status" aria-live="polite">Voice quality and availability depend on Chrome and installed system voices.</p>
+    </section>
+
+    <div class="status" id="status" role="status" aria-live="polite"><span class="status-dot"></span><span id="status-text">Ready when you are</span></div>
+    <div class="actions">
+      <button class="button button-primary" id="start" type="button"><span aria-hidden="true">▶</span> Start guidance</button>
+      <button class="button button-secondary" id="stop" type="button" disabled>Stop guidance</button>
+    </div>
+    <footer><span class="shield" aria-hidden="true">◈</span> Clear, step-by-step help for the fields you choose.</footer>
+  </main>
+  <script src="voice-guide.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

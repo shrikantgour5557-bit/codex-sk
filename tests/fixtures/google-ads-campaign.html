@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StepPilot campaign form fixture</title>
+<style>body{font:16px system-ui;max-width:680px;margin:40px auto;padding:0 20px}label{display:block;margin:18px 0 5px}input,textarea{width:100%;padding:10px;font:inherit}small{color:#58677b}</style>
+<h1>Campaign setup</h1><p>Google Ads style field labels for a local fixture only.</p>
+<form>
+  <label for="business">Business name</label><input id="business" name="business_name" required>
+  <label for="final-url">Final URL</label><input id="final-url" name="final_url" type="url" placeholder="https://www.yoursite.com/page" aria-describedby="url-help" required><small id="url-help">Enter the page visitors should reach from your ad.</small>
+  <label for="budget">Average daily budget</label><input id="budget" name="daily_budget" inputmode="decimal">
+  <label for="location">Locations</label><input id="location" name="locations" placeholder="City, region, or country">
+  <label for="keywords">Keywords</label><textarea id="keywords" name="keywords" placeholder="Products, services, or topics"></textarea>
+  <label for="start-date">Campaign start date</label><input id="start-date" name="start_date" type="date">
+  <label for="campaign-description">Campaign description (optional)</label><textarea id="campaign-description" name="campaign_description" aria-describedby="description-help"></textarea><small id="description-help">Briefly describe what this campaign promotes.</small>
+  <label for="notes">Internal notes</label><textarea id="notes" name="notes"></textarea>
+</form>
+</html>
